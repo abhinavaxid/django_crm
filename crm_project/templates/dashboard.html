@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Dashboard</h2>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-header">Customers</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ num_customers }}</h5>
+          <p class="card-text">Number of customers</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-header">Opportunities</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ num_opportunities }}</h5>
+          <p class="card-text">Number of opportunities</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-white bg-info mb-3">
+        <div class="card-header">Interactions</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ num_interactions }}</h5>
+          <p class="card-text">Number of interactions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

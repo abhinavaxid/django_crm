@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Opportunity Details{% endblock %}
+
+{% block content %}
+  <h2>Opportunity Details</h2>
+  <p>Name: {{ opportunity.customer }}</p>
+  <p>Description: {{ opportunity.description }}</p>
+  <p>Value: {{ opportunity.value }}</p>
+  <p>Stage: {{ opportunity.stage }}</p>
+  <!-- Add more fields as needed -->
+  
+  <a href="{% url 'opportunity_edit' opportunity.pk %}" class="btn btn-primary">Edit</a>
+  <a href="{% url 'opportunity_delete' opportunity.pk %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'opportunity_list' %}" class="btn btn-secondary">Back to Opportunity List</a>
+{% endblock %}

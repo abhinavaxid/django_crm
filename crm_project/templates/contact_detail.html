@@ -1,0 +1,22 @@
+<!-- contact_detail.html -->
+{% extends "base_generic.html" %}
+{% block title %}Contact Details{% endblock %}
+
+{% block content %}
+  <h2>Contact Details</h2>
+  <dl class="row">
+    <dt class="col-sm-3">Name:</dt>
+    <dd class="col-sm-9">{{ contact.name }}</dd>
+
+    <dt class="col-sm-3">Email:</dt>
+    <dd class="col-sm-9">{{ contact.email }}</dd>
+
+    <dt class="col-sm-3">Phone:</dt>
+    <dd class="col-sm-9">{{ contact.phone }}</dd>
+
+    <dt class="col-sm-3">Role:</dt>
+    <dd class="col-sm-9">{{ contact.role }}</dd>
+  </dl>
+  <a href="{% url 'contact_edit' contact.id %}" class="btn btn-primary">Edit</a>
+  <a href="{% url 'contact_list' %}" class="btn btn-secondary">Back to Contacts</a>
+{% endblock %}

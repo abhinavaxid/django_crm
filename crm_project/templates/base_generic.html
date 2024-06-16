@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CRM System{% endblock %}</title>
+    {% load static %}
+    <!-- Your custom stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add any other CSS or JS files you need here -->
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #f8f9fa; /* Bootstrap light background color */
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CRM System</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'customer_list' %}">Customers</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'opportunity_list' %}">Opportunities</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'interaction_list' %}">Interactions</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact_list' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        {% block content %}
+        <!-- Content specific to each page will be injected here -->
+        {% endblock %}
+    </main>
+    <footer class="footer footer-dark mt-auto py-3">
+        <div class="container">
+            <p class="text-muted">&copy; 2024 CRM System</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CRM System{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Add any other CSS or JS files you need here -->
+</head>
+<body>
+    <header>
+        <h1>CRM System</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'customer_list' %}">Customers</a></li>
+                <li><a href="{% url 'opportunity_list' %}">Opportunities</a></li>
+                <li><a href="{% url 'interaction_list' %}">Interactions</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        <!-- Content specific to each page will be injected here -->
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 CRM System</p>
+    </footer>
+</body>
+</html> {% endcomment %}

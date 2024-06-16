@@ -1,0 +1,44 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Customer Details{% endblock %}
+
+{% block content %}
+  <h2>Customer Details</h2>
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <td>{{ customer.name }}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{ customer.email }}</td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td>{{ customer.phone }}</td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td>{{ customer.address }}</td>
+    </tr>
+    <!-- Add other customer fields as necessary -->
+  </table>
+
+  <h3>Interactions</h3>
+  <ul>
+    {% for interaction in customer.interactions.all %}
+      <li>{{ interaction.interaction_type }} on {{ interaction.date }}: {{ interaction.notes }}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Opportunities</h3>
+  <ul>
+    {% for opportunity in customer.opportunities.all %}
+      <li>{{ opportunity.name }} - {{ opportunity.stage }}</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'customer_edit' customer.pk %}" class="btn btn-primary">Edit</a>
+  <a href="{% url 'customer_delete' customer.pk %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'customer_list' %}" class="btn btn-secondary">Back to Customer List</a>
+{% endblock %}

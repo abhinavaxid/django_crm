@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Confirm Delete Opportunity{% endblock %}
+
+{% block content %}
+  <h2>Confirm Delete</h2>
+  <p>Are you sure you want to delete the opportunity "{{ opportunity.customer }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirm</button>
+    <a href="{% url 'opportunity_detail' opportunity.pk %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}

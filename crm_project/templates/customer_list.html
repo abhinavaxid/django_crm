@@ -1,0 +1,51 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Customer List</h2>
+  
+  <a href="{% url 'customer_create' %}" class="btn btn-primary mb-3">Add New Customer</a>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for customer in customers %}
+        <tr>
+          <td>
+            <a href="{% url 'customer_detail' customer.pk %}">{{ customer.name }}</a>
+          </td>
+          <td>
+            <a href="{% url 'customer_edit' customer.pk %}" class="btn btn-warning btn-sm">Edit</a>
+            <a href="{% url 'customer_delete' customer.pk %}" class="btn btn-danger btn-sm">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+
+
+
+
+{% comment %} {% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Customer List</h2>
+  <a href="{% url 'customer_create' %}">Add new customer</a>
+  <ul>
+    {% for customer in customers %}
+      <li>
+        <a href="{% url 'customer_detail' customer.pk %}">{{ customer.name }}</a>
+        (<a href="{% url 'customer_edit' customer.pk %}">edit</a>,
+        <a href="{% url 'customer_delete' customer.pk %}">delete</a>)
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %} {% endcomment %}

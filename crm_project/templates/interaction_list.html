@@ -1,0 +1,75 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Interaction List{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Interaction List</h2>
+  <a href="{% url 'interaction_create' %}" class="btn btn-primary mb-3">Add Interaction</a>
+  
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Type</th>
+          <th>Date</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for interaction in interactions %}
+          <tr>
+            <td>{{ interaction.customer.name }}</td>
+            <td>{{ interaction.interaction_type }}</td>
+            <td>{{ interaction.date|date:"F j, Y" }}</td>
+            <td>{{ interaction.notes }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="4" class="text-center">No interactions found.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+{% comment %} {% extends "base_generic.html" %}
+
+{% block title %}Interaction List{% endblock %}
+
+{% block content %}
+  <h2>Interaction List</h2>
+  <a href="{% url 'interaction_create' %}" class="btn btn-primary">Add Interaction</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for interaction in interactions %}
+        <tr>
+          <td>{{ interaction.customer.name }}</td>
+          <td>{{ interaction.interaction_type }}</td>
+          <td>{{ interaction.date|date:"F j, Y" }}</td>
+          <td>{{ interaction.notes }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No interactions found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %} {% endcomment %}

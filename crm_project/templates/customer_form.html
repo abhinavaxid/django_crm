@@ -1,0 +1,47 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Customer Form{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">{% if form.instance.pk %}Edit{% else %}Add{% endif %} Customer</h2>
+  
+  <form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        {{ field.label_tag }}
+        {{ field }}
+        <div class="invalid-feedback">
+          {{ field.errors }}
+        </div>
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">
+      {% if form.instance.pk %}Save Changes{% else %}Add Customer{% endif %}
+    </button>
+    <a href="{% url 'customer_list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}
+
+
+
+
+
+
+{% comment %} {% extends "base_generic.html" %} {% block title %}Customer Form{% endblock %}
+{% block content %}
+<h2>Customer Form</h2>
+<h2>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Customer</h2>
+<form method="post">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit" class="btn btn-primary">
+    {% if form.instance.pk %}Save Changes{% else %}Add Customer{% endif %}
+  </button>
+  <a href="{% url 'customer_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %} {% endcomment %}
