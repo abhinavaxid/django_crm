@@ -55,3 +55,4 @@ python manage.py runserver
 Usage:
 - Navigate to http://localhost:8000/ to use the CRM system.
 - Use the admin interface at http://localhost:8000/admin/ to manage database records (e.g., customers, contacts, interactions).
+- Use the API endpoints for programmatic access to CRM functionalities.
