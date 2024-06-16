@@ -7,13 +7,13 @@ Features:
 - Customer Management: CRUD operations for managing customer information.
 - Contact Management: CRUD operations for managing contacts associated with customers.
 - Interaction Tracking: Log interactions (calls, meetings, emails) with customers.
-- Opportunity Tracking: Track sales opportunities and their stages.
-- Dashboard: Display key metrics such as number of opportunities, stages, and customer interaction history.
+- Opportunity : Track sales opportunities and their stages.
+- Dashboard: Display key metrics.
 
 Prerequisites:
 - Python (>=3.6)
 - Django (>=3.0)
-- PostgreSQL or SQLite (as per your choice for database)
+- SQLite
 - Git (optional, for version control)
 
 Installation:
